@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig-parent.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "."
+  },
+  "exclude": [
+    "build",
+    "node_modules"
+  ],
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.vue"
+  ]
+}

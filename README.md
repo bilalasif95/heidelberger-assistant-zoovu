@@ -1,2 +1,2 @@
-# heidelberger-assistant
+# Custom Design Starter
 

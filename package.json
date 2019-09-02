@@ -1,0 +1,61 @@
+{
+  "name": "@beach-bunny-swimwear/theme1",
+  "webDesignName": "Theme1",
+  "description": "Zoovu theme 1",
+  "version": "4.14.0-alpha.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "build/dist/webdesign-bundle.min.js",
+  "files": [
+    "build/dist/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf build target package-lock.json && rimraf node_modules",
+    "bootstrap": "yarn clean && yarn && rimraf node_modules/@zoovu/runner-web-design-base/node_modules/@zoovu",
+    "start": "yarn package-dev-preview",
+    "package-dev": "zoovu-web-design package-dev",
+    "package-dev-watch": "zoovu-web-design package-dev && zoovu-web-design package-dev-watch",
+    "package-dev-preview": "concurrently npm:package-dev-watch npm:open-preview",
+    "package-prod": "zoovu-web-design package-prod",
+    "build": "zoovu-web-design build",
+    "open-preview": "node ./scripts/open-preview.js",
+    "build-dev-watch": "zoovu-web-design build-dev && yarn run package-dev-watch",
+    "build-dev-preview": "concurrently npm:build-dev-watch npm:demo",
+    "test": "exit 0;",
+    "set-version": "yarn version --no-git-tag-version --new-version",
+    "go-publish": "yarn publish",
+    "package-profile": "webpack --profile --json --config ./../../node_modules/@zoovu/runner-web-design-base/zoovu-web-design-cli/web-design-webpack.config.js > ./build/package-stats.json",
+    "analyze-profile": "webpack-bundle-analyzer ./build/package-stats.json",
+    "deploy": "yarn build && node ./scripts/upload-to-aws.js"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.smartassistant.com/nexus/repository/smartassistant-npm/"
+  },
+  "dependencies": {
+    "@zoovu/runner-browser-api": "^4.13.0",
+    "@zoovu/runner-browser-test-utils": "^4.13.0",
+    "@zoovu/runner-web-design-base": "^4.13.0",
+    "chroma-js": "^1.4.0",
+    "v-tooltip": "2.0.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.491.0",
+    "browser-sync": "^2.26.7",
+    "chalk": "^2.4.2",
+    "clipboardy": "^2.1.0",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "glob": "^7.1.4",
+    "http-server": "^0.11.1",
+    "karma": "^2.0.5",
+    "mime-types": "^2.1.24",
+    "opener": "^1.5.1",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript-json-schema": "0.32.0",
+    "wait-on": "^3.2.0",
+    "webpack": "^4.20.2"
+  }
+}

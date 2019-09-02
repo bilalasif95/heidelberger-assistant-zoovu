@@ -1,0 +1,16 @@
+.DS_Store
+build/
+target/
+node_modules/
+*.log
+local-environment.json
+
+### IntelliJ IDEA
+
+# ignore whole IntelliJ IDEA project configuration…
+/*.iml
+/.idea/*
+
+# …except shared Runner 4 configuration
+!/.idea/inspectionProfiles/
+!/.idea/runConfigurations/

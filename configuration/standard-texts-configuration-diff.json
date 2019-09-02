@@ -1,0 +1,27 @@
+{
+  "standardTexts": {
+    "locales": [
+      "base"
+    ],
+    "defaultLocale": "base",
+    "sections": [
+      {},
+      {
+        "name": "Result",
+        "id": "default-section-result",
+        "messages": [
+          {
+            "id": "message-result-first-cluster-header",
+            "label": "First cluster header",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "Let's see which products totally match your needs:"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
