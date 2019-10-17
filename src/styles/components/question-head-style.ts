@@ -1,6 +1,7 @@
 import globals from "../partials/global-variables";
 import stylesConfig from "../styles.config";
 import infoTextTrigger from "../partials/info-text-trigger";
+import { NONAME } from 'dns';
 
 const imageQuestionHeadingFontColor = stylesConfig.colors.secondaryFontColor;
 const questionHeadingFontSize = {

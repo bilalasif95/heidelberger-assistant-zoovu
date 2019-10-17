@@ -4,9 +4,8 @@
             <component class="product-name" :is="productClickoutLinkView" v-bind:product="recommendation" target="_blank">
                 {{recommendation.name}}
             </component>
-            <div class="product-image">
+            <div class="product-image" :style="{backgroundColor: recommendation.picture}">
                 <component :is="productClickoutLinkView" v-bind:product="recommendation" target="_blank">
-                    <img :src="recommendation.picture" :alt="recommendation.name">
                 </component>
             </div>
             <div class="price-compare-wrapper">

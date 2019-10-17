@@ -28,6 +28,7 @@ import TextQuestionViewStyle from "./styles/components/text-question-style";
 import BrandingStyle from "./styles/components/branding-style";
 import PageStyle from "./styles/components/page-style";
 import QuestionHeadStyle from "./styles/components/question-head-style";
+import ColorPickerQuestionStyle from "./styles/components/color-picker-question-style";
 
 export default {
     AdvisorViewStyle,
@@ -59,5 +60,6 @@ export default {
     TextQuestionViewStyle,
     BrandingStyle,
     PageStyle,
-    QuestionHeadStyle
+    QuestionHeadStyle,
+    ColorPickerQuestionStyle
 };

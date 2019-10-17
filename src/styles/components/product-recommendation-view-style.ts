@@ -54,7 +54,13 @@ export default {
             "margin": "15px 0 20px",
             "height": "200px",
             "maxWidth": "100%",
+            'position': 'relative',
             "& a": {
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
                 "&:focus": {
                     outlineColor: stylesConfig.colors.primary.spectrum400
                 },

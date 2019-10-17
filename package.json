@@ -1,7 +1,7 @@
 {
-  "name": "@beach-bunny-swimwear/theme1",
-  "webDesignName": "Theme1",
-  "description": "Zoovu theme 1",
+  "name": "@heidelberger/theme1",
+  "webDesignName": "Heidelberger",
+  "description": "Heidelberger custom theme",
   "version": "4.14.0-alpha.0",
   "license": "SEE LICENSE IN LICENSE",
   "main": "build/dist/webdesign-bundle.min.js",

@@ -51,8 +51,7 @@ export default {
             "display": "flex",
             "justifyContent": "center",
             "alignItems": "center",
-            "padding": "0 25px",
-            "margin": "0 0 20px",
+            "margin": "0 25px 20px",
             "minHeight": "250px",
             "maxWidth": "100%",
             [`@media (${globals.breakpoints.$xs})`]: {

@@ -1,5 +1,6 @@
 import globals from "../partials/global-variables";
 import stylesConfig from "../styles.config";
+import { NONAME } from 'dns';
 
 const dropDownHeadingColor = stylesConfig.colors.primaryFontColor;
 const dropDownQuestionHeaderSize = {

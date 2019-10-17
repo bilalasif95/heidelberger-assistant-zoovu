@@ -21,6 +21,54 @@
             ]
           }
         ]
+      },
+      {},
+      {},
+      {
+        "name": "Customs",
+        "id": "section-custom-strings",
+        "messages": [
+          {
+            "id": "searchbox-label",
+            "label": "Searchbox label",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "Code or name of Pantone"
+              }
+            ]
+          },
+          {
+            "id": "searchbox-placeholder",
+            "label": "Searchbox placeholder",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "Please enter color code or name"
+              }
+            ]
+          },
+          {
+            "id": "searchbox-button",
+            "label": "Searchbox button",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "SEARCH"
+              }
+            ]
+          },
+          {
+            "id": "searchbox-no-results",
+            "label": "Searchbox no results msg",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "No results found, try another code please."
+              }
+            ]
+          }
+        ]
       }
     ]
   }
