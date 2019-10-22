@@ -31,6 +31,7 @@ export default {
             margin: [0, 0, "25px"],
             fontSize: productsHeaderSize.$lg,
             fontWeight: 400,
+            lineHeight: 1,
             color: productsHeaderColor,
             textAlign: "center",
             [`@media (${globals.breakpoints.$md})`]: {

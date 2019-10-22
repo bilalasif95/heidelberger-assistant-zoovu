@@ -38,14 +38,14 @@
                 @mouseenter="answer.hasInfoText = true"
                 @mouseleave="answer.hasInfoText = false"
                 :style="{backgroundColor: answer.hexCode}">
-                <div class="card__mobile-text">{{answer.text}}</div>
+                <div class="card__mobile-text">{{answer.name}}</div>
                 <transition name="fade">
                     <span class="card__hover"
                         @click="onSelect(answer)"
                         v-if="answer.hasInfoText">
                         <div class="card__hover-color"
-                            :style="{backgroundColor: answer.hexCode}"/>
-                        <div class="card__hover-text">{{answer.text}}</div>
+                             :style="{backgroundColor: answer.hexCode}"></div>
+                        <div class="card__hover-text">{{answer.name}}</div>
                     </span>
                 </transition>
             </div>
@@ -209,6 +209,8 @@
                 font-size: 12px;
                 line-height: 20px;
                 padding: 0 5px;
+                white-space: nowrap;
+                overflow: hidden;
                 @media screen and (min-width: 1200px) {
                     display: none;
                 }
