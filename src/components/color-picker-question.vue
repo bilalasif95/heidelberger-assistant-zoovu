@@ -1,7 +1,7 @@
 <template>
     <div :id="question.mid + '-wrapper'"
         :class="componentStyle.container" tabindex="-1" > <!--:style="answerWrapperStyle"-->
-
+        <component :is="questionHeadView" :question="question"></component>
         <div class="search">
             <label class="search__label">{{$t('searchbox-label')}}</label>
             <input type="text"
@@ -67,6 +67,9 @@
         @ComponentStyle()
         componentStyle: ComponentStyleDefinition;
 
+        @InjectComponent("QuestionHeadView")
+        questionHeadView: VueComponent;
+        
         @Prop()
         private question: RangeQuestion;
 
@@ -140,15 +143,15 @@
             }
         }
         &__button {
-            position: relative;
+            position: absolute;
             cursor: pointer;
             display: inline-block;
             z-index: 9;
-            margin-left: -20px;
+            margin-left: -16px;
             padding: 0 10px 0 22px;;
 	        border: 1px solid #979797;
             height: 45px;
-            line-height: 3;
+            line-height: 43px;
             color: #979797;
             font-size: 14px;
             font-weight: bold;

@@ -6,7 +6,7 @@ export default {
     container: {
         "& .answers-wrapper": {
             "flexFlow": "wrap row",
-            "alignItems": "flex-end",
+            "alignItems": "stretch",
             "justifyContent": "space-between",
             "display": "flex",
             "margin" : [0, "-7px", "75px", "-7.5px"],
@@ -32,6 +32,9 @@ export default {
                     outlineColor: focusOutlineColor,
                     boxShadow: "6px 3px 18px rgba(0, 0, 0, 0.47)"
                 },
+            },
+            "& .answer-content": {
+                height: '100%'
             },
             "& .answer-image": {
                 height: "315px",
