@@ -31,9 +31,9 @@
     "registry": "https://nexus.smartassistant.com/nexus/repository/smartassistant-npm/"
   },
   "dependencies": {
-    "@zoovu/runner-browser-api": "^4.13.0",
-    "@zoovu/runner-browser-test-utils": "^4.13.0",
-    "@zoovu/runner-web-design-base": "^4.13.0",
+    "@zoovu/runner-browser-api": "~4.18.0",
+    "@zoovu/runner-browser-test-utils": "~4.18.0",
+    "@zoovu/runner-web-design-base": "~4.19.0",
     "chroma-js": "^1.4.0",
     "v-tooltip": "2.0.2"
   },
