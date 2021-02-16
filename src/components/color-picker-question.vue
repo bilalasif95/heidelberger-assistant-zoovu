@@ -5,7 +5,7 @@
         <div class="search">
             <label class="search__label">{{$t('searchbox-label')}}</label>
             <input type="text"
-                class="search__input" 
+                class="search__input"
                 v-model="search"
                 @keydown="exactMatch = false"
                 @keydown.enter="search ? exactMatch = true : false"
@@ -49,7 +49,7 @@
                     </span>
                 </transition>
             </div>
-            <div v-if="Object.entries(filteredList).length == 0" class="">
+            <div v-if="Object.entries(filteredList).length === 0" class="">
                 {{$t('searchbox-no-results')}}
             </div>
         </div>
@@ -69,7 +69,7 @@
 
         @InjectComponent("QuestionHeadView")
         questionHeadView: VueComponent;
-        
+
         @Prop()
         private question: RangeQuestion;
 
@@ -187,14 +187,14 @@
             position: relative;
             margin: 5px;
             width: 76px;
-            padding-top:74px; 
+            padding-top:74px;
             box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
             transition: transform 0.2s ease-in;
             @media screen and (min-width: 1200px) {
                 width: 50px;
                 height: 50px;
                 margin: 1px;
-                padding-top: 0; 
+                padding-top: 0;
                 box-shadow: none;
             }
             &__selected {
