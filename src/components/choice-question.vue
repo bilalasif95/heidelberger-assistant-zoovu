@@ -1,5 +1,5 @@
 <template>
-    <div :id="question.mid" :class="[componentStyle.container, componentStateClasses]" class="single-question-wrapper">
+    <div :id="question.mid" :class="[componentStyle.container, componentStateClasses]" class="single-question-wrapper" v-show="!isHiddenQuestion">
         <component :is="questionHeadView" :question="question"></component>
         <template v-if="question.questionType === QuestionType.CHECKBOX">
             <div class="answers-wrapper checkbox">
@@ -74,6 +74,10 @@
 
         isLastAnswer(index) {
             return index === this.question.answers.length - 1;
+        }
+
+        get isHiddenQuestion(): boolean {
+          return this.question.parameters["hideQuestion"]
         }
     }
 </script>

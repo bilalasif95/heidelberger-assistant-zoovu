@@ -3,8 +3,6 @@
         Component,
         Prop,
         Recommendation,
-        RecommendationSettingsBuilder,
-        SectionType,
         ComponentConfig,
     } from "@zoovu/runner-browser-api";
     import { AdviceView, RecommendationConfiguration } from "@zoovu/runner-web-design-base";
@@ -19,27 +17,11 @@
         @ComponentConfig(RecommendationConfiguration)
         configuration: RecommendationConfiguration;
 
-        public mounted() {
-            this.setVisualSettings();
-            this.requestAdviceUpdate(false);
-            this.setRecommendationsWrapperAnchor();
-        }
 
         private setVisualSettings() {
-            this.advice.setRecommendationSettings(
-                new RecommendationSettingsBuilder()
-                    .withNumberOfProductsForSection(SectionType.QUESTIONNAIRE, this.configuration.numberOfProductsPerQuestionnairePage)
-                    .withNumberOfProductsForSection(SectionType.RESULTS_PAGE, this.configuration.numberOfProductsPerResultsPage)
-                    .build()
-            );
         }
 
         private requestAdviceUpdate(shouldRunEvenIfPageIsAlreadyLoaded: boolean) {
-            if (shouldRunEvenIfPageIsAlreadyLoaded) {
-                this.advice.requestUpdate();
-            } else if (!this.advice.currentPage) {
-                this.advice.requestUpdate();
-            }
         }
 
         private setRecommendationsWrapperAnchor() {

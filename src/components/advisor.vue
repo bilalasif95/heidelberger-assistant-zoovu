@@ -22,6 +22,7 @@
     import {ComponentConfig, Component, ComponentStyle, ComponentStyleDefinition} from "@zoovu/runner-browser-api";
     import {AdvisorView, ColorsConfiguration, FontsConfiguration, CustomCSSConfiguration} from "@zoovu/runner-web-design-base";
     import {CustomizedStandardTextsConfiguration} from "../configuration/customized-standard-texts";
+    import {AnimationsAndTransitionsConfiguration} from "@zoovu/runner-web-design-base/src/configuration/index";
 
     @Component({})
     export default class AdvisorViewExtended extends AdvisorView {
@@ -41,5 +42,7 @@
         @ComponentConfig(CustomCSSConfiguration)
         private customCSSConfiguration: CustomCSSConfiguration;
 
+        @ComponentConfig(AnimationsAndTransitionsConfiguration)
+        animationsAndTransitionsConfiguration: AnimationsAndTransitionsConfiguration;
     }
 </script>
