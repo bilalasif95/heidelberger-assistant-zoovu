@@ -88,40 +88,7 @@ const WebDesignClass = CreateWebDesignClass({
     AdvisorView: componentRegistry.getComponent("AdvisorView"),
     componentRegistry,
     styleRegistry,
-    plugins: [new AutoForwardPlugin(), {
-        beforeMount: async (advisor: Advisor) => {
-            if ( advisor.customSessionState == null ) {
-                advisor.setCustomSessionState( { colorTypePreselected : ""});
-            }
-            advisor.onGlobalEvent("AdvisorModel.startOver:afterActionSession", () => {
-                advisor.setCustomSessionState( { colorTypePreselected : ""});
-            });
-            advisor.onGlobalEvent("AdvisorNavigationModel.next:afterActionSession", () => {
-                if(advisor.advisorNavigation.currentSection.type === "QUESTIONNAIRE") {
-                    const currentQuestion = advisor.flowStepsNavigation.currentFlowStep.questions[0] as ChoiceQuestion;
-                    const colorTypePreselected = advisor.customSessionState.colorTypePreselected;
-                    if ( currentQuestion.parameters.hiddenQuestion == 'true' && !!colorTypePreselected ) {
-                        currentQuestion.answers.forEach(answer => {
-                            if(answer.answerText.trim().toLowerCase() === colorTypePreselected.trim().toLowerCase()){
-                                if ( !answer.selected ) {
-                                    answer.select();
-                                    advisor.setCustomSessionState( { colorTypePreselected : ""});
-                                    const subscription = advisor.onGlobalEvent("QAFlowModel.setNewSpecification:afterActionSession", () => {
-                                        advisor.advisorNavigation.next();
-                                        advisor.offGlobalEvent(subscription);
-                                    });
-                                } else {
-                                    advisor.setCustomSessionState( { colorTypePreselected : ""});
-                                    advisor.advisorNavigation.next();
-                                }
-                            }});
-                        }
-                    }
-                }
-
-            );
-        }
-    }, new DoubleSliderAutoForwardPlugin()],
+    plugins: [AutoForwardPlugin, DoubleSliderAutoForwardPlugin],
     versionDescriptor: {
         version: __WEB_DESIGN__VERSION__,
         git: {

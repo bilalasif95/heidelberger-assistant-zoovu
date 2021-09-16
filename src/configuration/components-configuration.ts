@@ -5,6 +5,7 @@ import {
     FontsConfiguration,
     QuestionConfiguration,
     RecommendationConfiguration,
+    AnimationsAndTransitionsConfiguration
 } from "@zoovu/runner-web-design-base";
 import {CustomizedStandardTextsConfiguration} from "./customized-standard-texts";
 
@@ -18,4 +19,5 @@ export class ComponentsConfiguration extends BaseComponentsConfiguration {
     public fonts?: FontsConfiguration = new FontsConfiguration();
     public standardTexts?: CustomizedStandardTextsConfiguration = new CustomizedStandardTextsConfiguration();
     public recommendationSettings: RecommendationConfiguration = new RecommendationConfiguration();
+    public animationsAndTransitionsConfiguration: AnimationsAndTransitionsConfiguration = new AnimationsAndTransitionsConfiguration();
 }
