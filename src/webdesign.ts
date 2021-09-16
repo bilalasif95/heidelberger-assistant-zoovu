@@ -17,6 +17,7 @@ import TopProductViewExtended from "./components/top-product.vue";
 import ShownProductsViewExtended from "./components/shown-products.vue";
 import styles from "./styles";
 import { AutoForwardPlugin } from "@zoovu/runner-web-design-base/src/plugins";
+import { DoubleSliderAutoForwardPlugin } from "./plugins/double-slider-autoforward";
 
 declare const __WEB_DESIGN__VERSION__: string;
 declare const __WEB_DESIGN__GIT_COMMIT_HASH__: string;
@@ -93,7 +94,7 @@ const WebDesignClass = CreateWebDesignClass({
                 advisor.setCustomSessionState( { colorTypePreselected : ""});
             }
             advisor.onGlobalEvent("AdvisorModel.startOver:afterActionSession", () => {
-                advisor.setCustomSessionState( { colorTypePreselected : ""}); 
+                advisor.setCustomSessionState( { colorTypePreselected : ""});
             });
             advisor.onGlobalEvent("AdvisorNavigationModel.next:afterActionSession", () => {
                 if(advisor.advisorNavigation.currentSection.type === "QUESTIONNAIRE") {
@@ -117,10 +118,10 @@ const WebDesignClass = CreateWebDesignClass({
                         }
                     }
                 }
-            
+
             );
         }
-    }],
+    }, new DoubleSliderAutoForwardPlugin()],
     versionDescriptor: {
         version: __WEB_DESIGN__VERSION__,
         git: {

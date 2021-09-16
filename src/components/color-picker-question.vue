@@ -112,7 +112,6 @@
                 this.question.setLowerBoundaryValue(Number(answer.hexMapping));
                 this.question.setUpperBoundaryValue(Number(answer.hexMapping));
             }
-            this.advisor.flowStepsNavigation.next();
         }
     }
 </script>
