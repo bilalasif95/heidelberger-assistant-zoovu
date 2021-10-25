@@ -67,6 +67,16 @@
                 "value": "No results found, try another code please."
               }
             ]
+          },
+          {
+            "id": "searchbox-loading",
+            "label": "Searchbox retrieving colors",
+            "localizations": [
+              {
+                "locale": "base",
+                "value": "Retrieving color list"
+              }
+            ]
           }
         ]
       }
