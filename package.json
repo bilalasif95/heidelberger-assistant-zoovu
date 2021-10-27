@@ -34,6 +34,7 @@
     "@zoovu/runner-browser-api": "^4.59.0",
     "@zoovu/runner-browser-test-utils": "^4.59.0",
     "@zoovu/runner-web-design-base": "^4.48.0",
+    "axios": "^0.23.0",
     "chroma-js": "^1.4.0",
     "v-tooltip": "2.0.2"
   },
