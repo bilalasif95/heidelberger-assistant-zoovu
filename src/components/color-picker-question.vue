@@ -110,6 +110,16 @@ import {
 
 import axios from "axios";
 
+interface colorAnswer {
+  "hexCode": string,
+  "colorType":string,
+  "text":string,
+  "hexMapping": string,
+  "name": string,
+  "hasInfoText": string,
+  "selected": string
+}
+
 @Component({})
 export default class ColorPickerQuestionView extends Vue {
   @ComponentStyle()
@@ -126,37 +136,18 @@ export default class ColorPickerQuestionView extends Vue {
 
   private search: string = "";
   public exactMatch: boolean = false;
-  private answers: object = {};
+  private answers: Array<colorAnswer> = [];
   private loading = false;
 
-  created() {
+   created() {
     this.getAnswers();
   }
 
-  get filteredList() {
-    let newAnswers = {};
-
+  get filteredList(): Array<colorAnswer> {
     if (this.exactMatch) {
-      for (const key in this.answers) {
-        if (
-          this.answers[key].text.toLowerCase() === this.search.toLowerCase()
-        ) {
-          newAnswers[key] = this.answers[key];
-        }
-      }
-    } else {
-      for (const key in this.answers) {
-        if (
-          this.answers[key].text
-            .toLowerCase()
-            .includes(this.search.toLowerCase())
-        ) {
-          newAnswers[key] = this.answers[key];
-        }
-      }
+      return this.answers.filter(answer => answer.text.toLowerCase() === this.search.toLowerCase())
     }
-
-    return newAnswers;
+    return this.answers.filter(answer => answer.text.toLowerCase().includes(this.search.toLowerCase()))
   }
 
   onSelect(answer) {
