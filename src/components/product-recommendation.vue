@@ -28,8 +28,8 @@
       <template v-if="shouldRenderProperties">
         <p class="properties-title">{{ $t("message-compare-selected-attributes") }}</p>
         <ul class="product-properties">
-          <template v-for="property in recommendation.properties">
-            <li v-if="shouldRenderProperty(property)" :class="resolveClass(property.marking)">
+          <template v-for="(property, index) in recommendation.properties">
+            <li v-if="shouldRenderProperty(property)" :key="index" :class="resolveClass(property.marking)">
               <i></i>{{ property.displayValue }}
             </li>
           </template>

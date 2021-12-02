@@ -11,8 +11,10 @@ export default class AdviceViewExtended extends AdviceView {
   @ComponentConfig(RecommendationConfiguration)
   configuration: RecommendationConfiguration;
 
+  // eslint-disable-next-line class-methods-use-this,@typescript-eslint/no-empty-function
   private setVisualSettings() {}
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function,class-methods-use-this
   private requestAdviceUpdate(shouldRunEvenIfPageIsAlreadyLoaded: boolean) {}
 
   private setRecommendationsWrapperAnchor() {

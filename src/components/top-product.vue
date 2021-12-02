@@ -27,8 +27,8 @@
       <template v-if="shouldRenderProperties">
         <p class="properties-title">{{ $t("message-compare-selected-attributes") }}</p>
         <ul class="product-properties">
-          <template v-for="property in recommendation.properties">
-            <li :class="resolveClass(property.marking)"><i></i>{{ property.displayValue }}</li>
+          <template v-for="(property, index) in recommendation.properties">
+            <li :key="index" :class="resolveClass(property.marking)"><i></i>{{ property.displayValue }}</li>
           </template>
         </ul>
       </template>
@@ -73,19 +73,6 @@ export default class TopProductViewExtended extends TopProductView {
   productClickoutLinkView: VueComponent;
 
   private attributesCollapsed = false;
-
-  public resolveClass(marking: Marking): string {
-    switch (marking) {
-      case Marking.POSITIVE:
-        return "positive-property";
-      case Marking.NEGATIVE:
-        return "negative-property";
-      case Marking.NEUTRAL:
-        return "neutral-property";
-      default:
-        return "";
-    }
-  }
 
   public onShowMoreClicked() {
     this.attributesCollapsed = !this.attributesCollapsed;

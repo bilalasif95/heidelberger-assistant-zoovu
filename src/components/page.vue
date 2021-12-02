@@ -72,7 +72,7 @@
           :is-last-question="isLastQuestion(index)"
         >
         </component>
-        <h4 v-else><i>This question type is not supported yet</i></h4>
+        <h4 v-else :key="question.mid"><i>This question type is not supported yet</i></h4>
       </template>
     </div>
 
@@ -134,15 +134,7 @@ export default class PageViewExtended extends PageView {
   @InjectComponent("TextQuestionView")
   textQuestionView: VueComponent;
 
-  get QuestionType(): typeof QuestionType {
-    return QuestionType;
-  }
-
-  get rootElementClass(): string {
-    return "page-wrapper";
-  }
-
-  isFirstQuestion(index) {
+  static isFirstQuestion(index) {
     return index === 0;
   }
 

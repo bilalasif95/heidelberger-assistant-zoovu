@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <td></td>
-          <th v-for="product in shownProducts">
+          <th v-for="(product, index) in shownProducts" :key="index">
             <div :id="product.mid" class="product-header">
               <div v-if="shownProducts.length > 1" class="remove-button-container">
                 <i class="remove-icon" @click="shownProductRemoved(product)"></i>
@@ -25,8 +25,8 @@
           </th>
         </tr>
       </thead>
-      <template v-for="group in propertyGroups">
-        <component :is="propertyGroupView" :group="group" :shown-products="shownProducts"></component>
+      <template v-for="(group, index) in propertyGroups">
+        <component :is="propertyGroupView" :key="index" :group="group" :shown-products="shownProducts"></component>
       </template>
     </table>
   </div>

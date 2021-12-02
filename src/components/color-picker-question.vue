@@ -59,7 +59,7 @@
       >
         <div class="card__mobile-text">{{ answer.name }}</div>
         <transition name="fade">
-          <span v-if="answer.hasInfoText === 'true'" class="card__hover" @click="onSelect(answer)">
+          <span v-if="answer.hasInfoText === 'true'" class="card__hover" @click="onSelect(colorAnswer)">
             <div class="card__hover-color" :style="{ backgroundColor: answer.hexCode }"></div>
             <div class="card__hover-text">{{ answer.name }}</div>
           </span>
@@ -75,17 +75,15 @@
 
 <script lang="ts">
 import {
-  Vue,
   Advisor,
-  VueComponent,
-  InjectComponent,
   Component,
-  Prop,
-  ChoiceQuestion,
   ComponentStyle,
   ComponentStyleDefinition,
-  Answer,
+  InjectComponent,
+  Prop,
   RangeQuestion,
+  Vue,
+  VueComponent,
 } from "@zoovu/runner-browser-api";
 
 import axios from "axios";
@@ -133,10 +131,12 @@ export default class ColorPickerQuestionView extends Vue {
     return this.answers.filter((answer) => answer.text.toLowerCase().includes(this.search.toLowerCase()));
   }
 
-  onSelect(answer) {
-    for (const key in this.answers) {
-      this.answers[key].selected = false;
-    }
+  onSelect(colorAnswer) {
+    /* eslint-disable no-param-reassign */
+    this.answers.forEach((possibleAnswer) => {
+      possibleAnswer.selected = false;
+    });
+    const answer = colorAnswer;
     answer.selected = true;
     this.advisor.setCustomSessionState({
       colorTypePreselected: answer.colorType.trim(),
@@ -155,6 +155,7 @@ export default class ColorPickerQuestionView extends Vue {
   async getAnswers() {
     this.loading = true;
     const { locale } = this.$root.componentViewModel.localizationSettings;
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const vm = this;
 
     axios

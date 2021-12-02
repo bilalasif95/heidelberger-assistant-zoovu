@@ -10,6 +10,7 @@
 
     <button
       v-for="(n, index) in visiblePages"
+      :key="index"
       class="page-button"
       :class="{ selected: startIndex + index === currentPageIndex }"
       @click="goToPage(startIndex + index)"
@@ -63,15 +64,13 @@ export default class AdviceNavigationViewExtended extends AdviceNavigationView {
   }
 
   public goToPage(pageNumber: number) {
-    if (pageNumber < 0) {
-      pageNumber = 0;
-    }
-
+    let newPageNumber = pageNumber;
+    if (pageNumber < 0) newPageNumber = 0;
     if (pageNumber >= this.advice.navigation.maxPages) {
-      pageNumber = this.advice.navigation.maxPages - 1;
+      newPageNumber = this.advice.navigation.maxPages - 1;
     }
 
-    this.advice.navigation.goToPage(pageNumber);
+    this.advice.navigation.goToPage(newPageNumber);
     this.scrollToAnchor();
   }
 
@@ -108,7 +107,7 @@ export default class AdviceNavigationViewExtended extends AdviceNavigationView {
 
   scrollToTop() {
     const header = this.$root.$el.offsetTop;
-    scrollTo(header, 300);
+    window.scrollTo(header, 300);
   }
 
   scrollToAnchor() {

@@ -78,13 +78,5 @@ export default class QuestionnaireViewExtended extends BaseView {
   get lastFlowStep(): boolean {
     return !this.advisor.flowStepsNavigation.hasNext;
   }
-
-  get SectionType(): SectionType {
-    return SectionType;
-  }
-
-  get rootElementClass(): string {
-    return "questionnaire-wrapper";
-  }
 }
 </script>
