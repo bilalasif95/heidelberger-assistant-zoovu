@@ -1,48 +1,47 @@
 <template>
-    <div :id="advisor.mid" :class="[componentStyle.container]">
-        <component
-                :is="questionnaireView"
-                :advisor="advisor"
-                :showPageSelectorBetweenNavigationButtons="false"
-                :showPageSelectorAboveMainSection="true"
-        >
-        </component>
-        <component
-                :is="resultsSectionView"
-                :advisor="advisor"
-                :showTopProduct="true"
-                :showPageSelector="true"
-        >
-        </component>
-        <component :is="comparisonView" :comparisonManager="advisor.comparisonManager"></component>
-    </div>
+  <div :id="advisor.mid" :class="[componentStyle.container]">
+    <component
+      :is="questionnaireView"
+      :advisor="advisor"
+      :show-page-selector-between-navigation-buttons="false"
+      :show-page-selector-above-main-section="true"
+    >
+    </component>
+    <component :is="resultsSectionView" :advisor="advisor" :show-top-product="true" :show-page-selector="true">
+    </component>
+    <component :is="comparisonView" :comparison-manager="advisor.comparisonManager"></component>
+  </div>
 </template>
 
 <script lang="ts">
-    import {ComponentConfig, Component, ComponentStyle, ComponentStyleDefinition} from "@zoovu/runner-browser-api";
-    import {AdvisorView, ColorsConfiguration, FontsConfiguration, CustomCSSConfiguration} from "@zoovu/runner-web-design-base";
-    import {CustomizedStandardTextsConfiguration} from "../configuration/customized-standard-texts";
-    import {AnimationsAndTransitionsConfiguration} from "@zoovu/runner-web-design-base/src/configuration/index";
+import { ComponentConfig, Component, ComponentStyle, ComponentStyleDefinition } from "@zoovu/runner-browser-api";
+import {
+  AdvisorView,
+  ColorsConfiguration,
+  FontsConfiguration,
+  CustomCSSConfiguration,
+} from "@zoovu/runner-web-design-base";
+import { AnimationsAndTransitionsConfiguration } from "@zoovu/runner-web-design-base/src/configuration/index";
+import { CustomizedStandardTextsConfiguration } from "../configuration/customized-standard-texts";
 
-    @Component({})
-    export default class AdvisorViewExtended extends AdvisorView {
+@Component({})
+export default class AdvisorViewExtended extends AdvisorView {
+  @ComponentStyle()
+  componentStyle: ComponentStyleDefinition;
 
-        @ComponentStyle()
-        componentStyle: ComponentStyleDefinition;
+  @ComponentConfig(ColorsConfiguration)
+  private colors: ColorsConfiguration;
 
-        @ComponentConfig(ColorsConfiguration)
-        private colors: ColorsConfiguration;
+  @ComponentConfig(FontsConfiguration)
+  private fonts: FontsConfiguration;
 
-        @ComponentConfig(FontsConfiguration)
-        private fonts: FontsConfiguration;
+  @ComponentConfig(CustomizedStandardTextsConfiguration)
+  private standardTexts: CustomizedStandardTextsConfiguration;
 
-        @ComponentConfig(CustomizedStandardTextsConfiguration)
-        private standardTexts: CustomizedStandardTextsConfiguration;
+  @ComponentConfig(CustomCSSConfiguration)
+  private customCSSConfiguration: CustomCSSConfiguration;
 
-        @ComponentConfig(CustomCSSConfiguration)
-        private customCSSConfiguration: CustomCSSConfiguration;
-
-        @ComponentConfig(AnimationsAndTransitionsConfiguration)
-        animationsAndTransitionsConfiguration: AnimationsAndTransitionsConfiguration;
-    }
+  @ComponentConfig(AnimationsAndTransitionsConfiguration)
+  animationsAndTransitionsConfiguration: AnimationsAndTransitionsConfiguration;
+}
 </script>

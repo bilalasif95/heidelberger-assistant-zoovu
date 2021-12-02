@@ -1,20 +1,16 @@
 <template>
-  <div
-    :id="question.mid + '-wrapper'"
-    :class="componentStyle.container"
-    tabindex="-1"
-  >
+  <div :id="question.mid + '-wrapper'" :class="componentStyle.container" tabindex="-1">
     <!--:style="answerWrapperStyle"-->
     <component :is="questionHeadView" :question="question"></component>
     <div class="search">
       <label class="search__label">{{ $t("searchbox-label") }}</label>
       <input
+        v-model="search"
         type="text"
         class="search__input"
-        v-model="search"
+        :placeholder="$t('searchbox-placeholder')"
         @keydown="exactMatch = false"
         @keydown.enter="search ? (exactMatch = true) : false"
-        :placeholder="$t('searchbox-placeholder')"
       />
       <div class="search__button" @click="search ? (exactMatch = true) : false">
         <span class="search__icon">
@@ -27,13 +23,7 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-            <g
-              id="Page-1"
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
-            >
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <g
                 id="heidelberg_search-changes"
                 transform="translate(-1024.000000, -226.000000)"
@@ -43,8 +33,8 @@
                 <g id="Group-3" transform="translate(763.000000, 194.500000)">
                   <g id="Group-2" transform="translate(0.000000, 20.000000)">
                     <path
-                      d="M269.513,25.786 C270.499005,25.786 271.407663,25.5395025 272.239,25.0465 C273.070337,24.5534975 273.727664,23.8913375 274.211,23.06 C274.694336,22.2286625 274.936,21.3200049 274.936,20.334 C274.936,19.3479951 274.694336,18.4393375 274.211,17.608 C273.727664,16.7766625 273.070337,16.1193357 272.239,15.636 C271.407663,15.1526642 270.499005,14.911 269.513,14.911 C268.526995,14.911 267.618337,15.1526642 266.787,15.636 C265.955663,16.1193357 265.293502,16.7766625 264.8005,17.608 C264.307498,18.4393375 264.061,19.3479951 264.061,20.334 C264.061,21.3200049 264.307498,22.2286625 264.8005,23.06 C265.293502,23.8913375 265.955663,24.5534975 266.787,25.0465 C267.618337,25.5395025 268.526995,25.786 269.513,25.786 Z M276.763,25.786 L282.766,31.789 L280.939,33.616 L274.936,27.584 L274.936,26.627 L274.588,26.308 C273.91133,26.9073363 273.133171,27.3664984 272.2535,27.6855 C271.373829,28.0045016 270.460338,28.164 269.513,28.164 C268.082326,28.164 266.762839,27.8160035 265.5545,27.12 C264.346161,26.4239965 263.394003,25.4863392 262.698,24.307 C261.982663,23.0889939 261.625,21.7646738 261.625,20.334 C261.625,18.9033262 261.97783,17.5838394 262.6835,16.3755 C263.38917,15.1671606 264.346161,14.2150035 265.5545,13.519 C266.762839,12.8229965 268.082326,12.475 269.513,12.475 C270.943674,12.475 272.267994,12.8326631 273.486,13.548 C274.665339,14.2440035 275.598163,15.1913273 276.2845,16.39 C276.970837,17.5886727 277.314,18.9033262 277.314,20.334 C277.314,21.3006715 277.154502,22.2238289 276.8355,23.1035 C276.516498,23.9831711 276.057336,24.7613299 275.458,25.438 L275.777,25.786 L276.763,25.786 Z"
                       id=""
+                      d="M269.513,25.786 C270.499005,25.786 271.407663,25.5395025 272.239,25.0465 C273.070337,24.5534975 273.727664,23.8913375 274.211,23.06 C274.694336,22.2286625 274.936,21.3200049 274.936,20.334 C274.936,19.3479951 274.694336,18.4393375 274.211,17.608 C273.727664,16.7766625 273.070337,16.1193357 272.239,15.636 C271.407663,15.1526642 270.499005,14.911 269.513,14.911 C268.526995,14.911 267.618337,15.1526642 266.787,15.636 C265.955663,16.1193357 265.293502,16.7766625 264.8005,17.608 C264.307498,18.4393375 264.061,19.3479951 264.061,20.334 C264.061,21.3200049 264.307498,22.2286625 264.8005,23.06 C265.293502,23.8913375 265.955663,24.5534975 266.787,25.0465 C267.618337,25.5395025 268.526995,25.786 269.513,25.786 Z M276.763,25.786 L282.766,31.789 L280.939,33.616 L274.936,27.584 L274.936,26.627 L274.588,26.308 C273.91133,26.9073363 273.133171,27.3664984 272.2535,27.6855 C271.373829,28.0045016 270.460338,28.164 269.513,28.164 C268.082326,28.164 266.762839,27.8160035 265.5545,27.12 C264.346161,26.4239965 263.394003,25.4863392 262.698,24.307 C261.982663,23.0889939 261.625,21.7646738 261.625,20.334 C261.625,18.9033262 261.97783,17.5838394 262.6835,16.3755 C263.38917,15.1671606 264.346161,14.2150035 265.5545,13.519 C266.762839,12.8229965 268.082326,12.475 269.513,12.475 C270.943674,12.475 272.267994,12.8326631 273.486,13.548 C274.665339,14.2440035 275.598163,15.1913273 276.2845,16.39 C276.970837,17.5886727 277.314,18.9033262 277.314,20.334 C277.314,21.3006715 277.154502,22.2238289 276.8355,23.1035 C276.516498,23.9831711 276.057336,24.7613299 275.458,25.438 L275.777,25.786 L276.763,25.786 Z"
                     ></path>
                   </g>
                 </g>
@@ -58,34 +48,24 @@
 
     <div class="cards-wrapper">
       <div
-        class="card"
         v-for="(answer, index) in filteredList"
-        :class="{ card__selected: answer.selected == 'true' }"
         :key="index"
+        class="card"
+        :class="{ card__selected: answer.selected == 'true' }"
+        :style="{ backgroundColor: answer.hexCode }"
         @click="onSelect(answer)"
         @mouseenter="answer.hasInfoText = 'true'"
         @mouseleave="answer.hasInfoText = 'false'"
-        :style="{ backgroundColor: answer.hexCode }"
       >
         <div class="card__mobile-text">{{ answer.name }}</div>
         <transition name="fade">
-          <span
-            class="card__hover"
-            @click="onSelect(answer)"
-            v-if="answer.hasInfoText === 'true'"
-          >
-            <div
-              class="card__hover-color"
-              :style="{ backgroundColor: answer.hexCode }"
-            ></div>
+          <span v-if="answer.hasInfoText === 'true'" class="card__hover" @click="onSelect(answer)">
+            <div class="card__hover-color" :style="{ backgroundColor: answer.hexCode }"></div>
             <div class="card__hover-text">{{ answer.name }}</div>
           </span>
         </transition>
       </div>
-      <div
-        v-if="Object.entries(filteredList).length === 0 && !loading"
-        class=""
-      >
+      <div v-if="Object.entries(filteredList).length === 0 && !loading" class="">
         {{ $t("searchbox-no-results") }}
       </div>
       <div v-if="loading" class="">{{ $t("searchbox-loading") }}</div>
@@ -111,13 +91,13 @@ import {
 import axios from "axios";
 
 interface colorAnswer {
-  "hexCode": string,
-  "colorType":string,
-  "text":string,
-  "hexMapping": string,
-  "name": string,
-  "hasInfoText": string,
-  "selected": string
+  hexCode: string;
+  colorType: string;
+  text: string;
+  hexMapping: string;
+  name: string;
+  hasInfoText: string;
+  selected: string;
 }
 
 @Component({})
@@ -134,20 +114,23 @@ export default class ColorPickerQuestionView extends Vue {
   @Prop()
   private advisor: Advisor;
 
-  private search: string = "";
-  public exactMatch: boolean = false;
+  private search = "";
+
+  public exactMatch = false;
+
   private answers: Array<colorAnswer> = [];
+
   private loading = false;
 
-   created() {
+  created() {
     this.getAnswers();
   }
 
   get filteredList(): Array<colorAnswer> {
     if (this.exactMatch) {
-      return this.answers.filter(answer => answer.text.toLowerCase() === this.search.toLowerCase())
+      return this.answers.filter((answer) => answer.text.toLowerCase() === this.search.toLowerCase());
     }
-    return this.answers.filter(answer => answer.text.toLowerCase().includes(this.search.toLowerCase()))
+    return this.answers.filter((answer) => answer.text.toLowerCase().includes(this.search.toLowerCase()));
   }
 
   onSelect(answer) {
@@ -171,7 +154,7 @@ export default class ColorPickerQuestionView extends Vue {
 
   async getAnswers() {
     this.loading = true;
-    const locale = this.$root.componentViewModel.localizationSettings.locale;
+    const { locale } = this.$root.componentViewModel.localizationSettings;
     const vm = this;
 
     axios

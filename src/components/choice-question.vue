@@ -21,30 +21,31 @@
 </template>
 
 <script lang="ts">
-    import {
-        Component,
-        Prop,
-        ChoiceQuestion,
-        ComponentConfig,
-        QuestionType,
-        ComponentStyle,
-        ComponentStyleDefinition, VueComponent,
-        InjectComponent,
-        Advisor,
-        Mixins
-    } from "@zoovu/runner-browser-api";
-    import {ChoiceQuestionView} from '@zoovu/runner-web-design-base';
-    import {QuestionConfiguration} from "@zoovu/runner-web-design-base/src/configuration/question-configuration";
-    import QuestionBaseMixin from "@zoovu/runner-web-design-base/src/components/question-base.vue";
-    import { CustomAttributes } from "../enums/custom-attributes"
-    @Component({
-        name:"ChoiceQuestionView",
-        mixins: [ChoiceQuestionView],
-    })
-    export default class ChoiceQuestionViewExtended extends Mixins(QuestionBaseMixin) {
+import {
+  Component,
+  Prop,
+  ChoiceQuestion,
+  ComponentConfig,
+  QuestionType,
+  ComponentStyle,
+  ComponentStyleDefinition,
+  VueComponent,
+  InjectComponent,
+  Advisor,
+  Mixins,
+} from "@zoovu/runner-browser-api";
+import { ChoiceQuestionView } from "@zoovu/runner-web-design-base";
+import { QuestionConfiguration } from "@zoovu/runner-web-design-base/src/configuration/question-configuration";
+import QuestionBaseMixin from "@zoovu/runner-web-design-base/src/components/question-base.vue";
+import { CustomAttributes } from "../enums/custom-attributes";
 
-        @Prop()
-        private advisor: Advisor;
+@Component({
+  name: "ChoiceQuestionView",
+  mixins: [ChoiceQuestionView],
+})
+export default class ChoiceQuestionViewExtended extends Mixins(QuestionBaseMixin) {
+  @Prop()
+  private advisor: Advisor;
 
         @Prop()
         private question: ChoiceQuestion;

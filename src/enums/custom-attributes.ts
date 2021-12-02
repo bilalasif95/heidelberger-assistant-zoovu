@@ -1,3 +1,3 @@
 export enum CustomAttributes {
-    HIDE_QUESTION= "hideQuestion"
+  HIDE_QUESTION = "hideQuestion",
 }

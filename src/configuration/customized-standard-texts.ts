@@ -1,5 +1,9 @@
-import {ComponentConfigurationClass} from "@zoovu/runner-browser-api";
-import {StandardTextsConfiguration, ValuesConfigurationConstructor, ConfigurationValues} from "@zoovu/runner-web-design-base";
+import { ComponentConfigurationClass } from "@zoovu/runner-browser-api";
+import {
+  StandardTextsConfiguration,
+  ValuesConfigurationConstructor,
+  ConfigurationValues,
+} from "@zoovu/runner-web-design-base";
 import customizedValuesConfigurationProvider from "./values/values-configuration-provider";
 
 /**
@@ -7,6 +11,4 @@ import customizedValuesConfigurationProvider from "./values/values-configuration
  */
 @ValuesConfigurationConstructor(ConfigurationValues.StandardTexts, customizedValuesConfigurationProvider)
 @ComponentConfigurationClass("standardTexts")
-export class CustomizedStandardTextsConfiguration extends StandardTextsConfiguration {
-
-}
+export class CustomizedStandardTextsConfiguration extends StandardTextsConfiguration {}
