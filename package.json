@@ -57,6 +57,7 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript-json-schema": "0.32.0",
     "wait-on": "^3.2.0",
-    "webpack": "^4.20.2"
+    "webpack": "^4.20.2",
+    "@zoovu/design-system": "^4.22.2"
   }
 }

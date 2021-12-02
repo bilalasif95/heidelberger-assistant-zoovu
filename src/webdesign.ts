@@ -6,7 +6,7 @@ import ProductComparisonSelectorViewExtended from "./components/product-comparis
 import ProductRecommendationViewExtended from "./components/product-recommendation.vue";
 import AdviceViewExtended from "./components/advice.vue";
 import SortViewExtended from "./components/sort.vue";
-import PaletteElement from "../zoovu-design-system/guideline/components/palette.vue";
+import PaletteElement from "@zoovu/design-system/guideline/components/palette.vue";
 import QuestionHeadViewExtended from "./components/question-head.vue";
 import AdviceNavigationViewExtended from "./components/advice-navigation.vue";
 import ColorPickerQuestionView from "./components/color-picker-question.vue";

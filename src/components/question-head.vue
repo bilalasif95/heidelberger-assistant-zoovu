@@ -31,10 +31,10 @@
 </template>
 
 <script lang="ts">
-    import {isMobile} from "../../zoovu-design-system/helpers";
-    import {Component, InjectComponent, VueComponent} from "@zoovu/runner-browser-api";
-    import {QuestionHeadView} from "@zoovu/runner-web-design-base";
-    import {vTooltip} from "../../zoovu-design-system/plugins";
+import { isMobile } from "@zoovu/design-system/src/helpers";
+import { vTooltip } from "@zoovu/design-system/src/plugins";
+import { Component, InjectComponent, VueComponent } from "@zoovu/runner-browser-api";
+import { QuestionHeadView } from "@zoovu/runner-web-design-base";
 
     @Component(vTooltip)
     export default class QuestionHeadViewExtended extends QuestionHeadView {

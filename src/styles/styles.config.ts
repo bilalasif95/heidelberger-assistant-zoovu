@@ -1,4 +1,4 @@
-import designSystem from "../../zoovu-design-system";
+import designSystem from "@zoovu/design-system/src";
 
 export default {
     ...designSystem(),

@@ -34,10 +34,10 @@
 </template>
 
 <script lang="ts">
-    import {isMobile} from "../../zoovu-design-system/helpers";
-    import {ChoiceAnswerView} from "@zoovu/runner-web-design-base";
-    import {VueComponent, InjectComponent, Component} from "@zoovu/runner-browser-api";
-    import {vTooltip} from "../../zoovu-design-system/plugins";
+import { isMobile } from "@zoovu/design-system/src/helpers";
+import { vTooltip } from "@zoovu/design-system/src/plugins";
+import { ChoiceAnswerView } from "@zoovu/runner-web-design-base";
+import { VueComponent, InjectComponent, Component } from "@zoovu/runner-browser-api";
 
     @Component(vTooltip)
     export default class ChoiceAnswerViewExtended extends ChoiceAnswerView {
