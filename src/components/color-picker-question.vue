@@ -88,7 +88,7 @@ import {
 
 import axios from "axios";
 
-interface colorAnswer {
+interface ColorAnswer {
   hexCode: string;
   colorType: string;
   text: string;
@@ -116,7 +116,7 @@ export default class ColorPickerQuestionView extends Vue {
 
   public exactMatch = false;
 
-  private answers: Array<colorAnswer> = [];
+  private answers: Array<ColorAnswer> = [];
 
   private loading = false;
 
@@ -124,7 +124,7 @@ export default class ColorPickerQuestionView extends Vue {
     this.getAnswers();
   }
 
-  get filteredList(): Array<colorAnswer> {
+  get filteredList(): Array<ColorAnswer> {
     if (this.exactMatch) {
       return this.answers.filter((answer) => answer.text.toLowerCase() === this.search.toLowerCase());
     }
