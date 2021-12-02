@@ -1,87 +1,82 @@
 <template>
-    <div>
-        <component :is="advisorSectionView"
-                   :advisor="advisor"
-                   :sectionType="SectionType.QUESTIONNAIRE"
-                   :rootElementClass="rootElementClass"
-                   :showPageSelectorBetweenNavigationButtons="showPageSelectorBetweenNavigationButtons"
-                   :showPageSelectorAboveMainSection="showPageSelectorAboveMainSection"
+  <div>
+    <component
+      :is="advisorSectionView"
+      :advisor="advisor"
+      :section-type="SectionType.QUESTIONNAIRE"
+      :root-element-class="rootElementClass"
+      :show-page-selector-between-navigation-buttons="showPageSelectorBetweenNavigationButtons"
+      :show-page-selector-above-main-section="showPageSelectorAboveMainSection"
+    >
+      <template slot="main-content">
+        <component
+          :is="pageView"
+          :flow-step="navigation.currentFlowStep"
+          :show-headline="navigation.currentFlowStep.type === 'LEAD'"
+          :last-flow-step="lastFlowStep"
+          :advisor="advisor"
         >
-            <template slot="main-content">
-                <component :is="pageView"
-                           :flowStep="navigation.currentFlowStep"
-                           :showHeadline="navigation.currentFlowStep.type === 'LEAD'"
-                           :lastFlowStep="lastFlowStep"
-                           :advisor="advisor"
-                >
-                </component>
-            </template>
-
-            <template slot="footer">
-                <component :is="adviceView" v-bind:advice="advisor.advice"></component>
-                <component :is="brandingView"/>
-            </template>
         </component>
-    </div>
+      </template>
+
+      <template slot="footer">
+        <component :is="adviceView" :advice="advisor.advice"></component>
+        <component :is="brandingView" />
+      </template>
+    </component>
+  </div>
 </template>
 
 <script lang="ts">
-    import {
-        Component,
-        Prop,
-        Advisor,
-        BaseView,
-        QAFlowStepsNavigation,
-        ComponentStyle,
-        ComponentStyleDefinition, VueComponent, InjectComponent, SectionType
-    } from "@zoovu/runner-browser-api";
-    import {QuestionnaireView} from "@zoovu/runner-web-design-base";
+import {
+  Component,
+  Prop,
+  Advisor,
+  BaseView,
+  QAFlowStepsNavigation,
+  ComponentStyle,
+  ComponentStyleDefinition,
+  VueComponent,
+  InjectComponent,
+  SectionType,
+} from "@zoovu/runner-browser-api";
+import { QuestionnaireView } from "@zoovu/runner-web-design-base";
 
+@Component({
+  name: "QuestionnaireView",
+  mixins: [QuestionnaireView],
+})
+export default class QuestionnaireViewExtended extends BaseView {
+  @Prop({ default: true })
+  showPageSelectorBetweenNavigationButtons: boolean;
 
-    @Component({
-        name:"QuestionnaireView",
-        mixins: [QuestionnaireView],
-    })
-    export default class QuestionnaireViewExtended extends BaseView {
+  @Prop({ default: false })
+  showPageSelectorAboveMainSection: boolean;
 
-        @Prop({default: true})
-        showPageSelectorBetweenNavigationButtons: boolean;
+  @Prop()
+  private advisor: Advisor;
 
-        @Prop({default: false})
-        showPageSelectorAboveMainSection: boolean;
+  @ComponentStyle()
+  componentStyle: ComponentStyleDefinition;
 
-        @Prop()
-        private advisor: Advisor;
+  @InjectComponent("AdvisorSectionView")
+  advisorSectionView: VueComponent;
 
-        @ComponentStyle()
-        componentStyle: ComponentStyleDefinition;
+  @InjectComponent("PageView")
+  pageView: VueComponent;
 
-        @InjectComponent("AdvisorSectionView")
-        advisorSectionView: VueComponent;
+  @InjectComponent("BrandingView")
+  brandingView: VueComponent;
 
-        @InjectComponent("PageView")
-        pageView: VueComponent;
+  @InjectComponent("AdviceView")
+  adviceView: VueComponent;
 
-        @InjectComponent("BrandingView")
-        brandingView: VueComponent;
+  get navigation(): QAFlowStepsNavigation {
+    return this.advisor.flowStepsNavigation;
+  }
 
-        @InjectComponent("AdviceView")
-        adviceView: VueComponent;
-
-        get navigation(): QAFlowStepsNavigation {
-            return this.advisor.flowStepsNavigation;
-        }
-
-        get lastFlowStep(): boolean {
-            return !this.advisor.flowStepsNavigation.hasNext;
-        }
-
-        get SectionType(): SectionType {
-            return SectionType
-        }
-
-        get rootElementClass(): string {
-            return "questionnaire-wrapper";
-        }
-    }
+  get lastFlowStep(): boolean {
+    return !this.advisor.flowStepsNavigation.hasNext;
+  }
+}
 </script>

@@ -1,4 +1,5 @@
-import {Vue} from "@zoovu/runner-browser-api";
+import { Vue } from "@zoovu/runner-browser-api";
+
 export const CustomStore = new Vue({
   data() {
     return {
@@ -6,11 +7,11 @@ export const CustomStore = new Vue({
     };
   },
   methods: {
-    add (key, val) {
+    add(key, val) {
       this.custom[key] = val;
     },
-    addRef (key, val) {
+    addRef(key, val) {
       this.$refs[key] = val;
-    }
-  }
+    },
+  },
 });

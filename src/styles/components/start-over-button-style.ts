@@ -1,8 +1,8 @@
-import {ButtonStartOver} from "../partials/buttons";
+import { ButtonStartOver } from "../partials/buttons";
 
 export default {
-    container: {
-        ...ButtonStartOver,
-        marginLeft: "auto"
-    }
+  container: {
+    ...ButtonStartOver,
+    marginLeft: "auto",
+  },
 };

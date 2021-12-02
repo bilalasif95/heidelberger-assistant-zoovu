@@ -1,9 +1,4 @@
-import {
-  Advisor,
-  AdvisorUI,
-  AdvisorWebDesignPlugin,
-  QuestionType
-} from "@zoovu/runner-browser-api";
+import { Advisor, AdvisorUI, AdvisorWebDesignPlugin, QuestionType } from "@zoovu/runner-browser-api";
 
 export class DoubleSliderAutoForwardPlugin implements AdvisorWebDesignPlugin {
   private advisor: Advisor;
@@ -17,11 +12,8 @@ export class DoubleSliderAutoForwardPlugin implements AdvisorWebDesignPlugin {
   public async afterMount(advisorUi: AdvisorUI): Promise<void> {
     this.advisorUi = advisorUi;
 
-    this.advisor.onGlobalEvent(
-        "RangeQuestionModel.setLowerBoundaryValue:afterActionSession",
-        (event) => {
-          this.advisor.advisorNavigation.next();
-        }
-    );
+    this.advisor.onGlobalEvent("RangeQuestionModel.setLowerBoundaryValue:afterActionSession", (event) => {
+      this.advisor.advisorNavigation.next();
+    });
   }
 }
