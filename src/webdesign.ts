@@ -16,6 +16,7 @@ import QuestionnaireViewExtended from "./components/questionnaire.vue";
 import ChoiceQuestionViewExtended from "./components/choice-question.vue";
 import TopProductViewExtended from "./components/top-product.vue";
 import ShownProductsViewExtended from "./components/shown-products.vue";
+import StartOverButtonViewExtended from "@/components/start-over-button.vue";
 import styles from "./styles";
 import { DoubleSliderAutoForwardPlugin } from "./plugins/double-slider-autoforward";
 /* eslint-disable no-underscore-dangle */
@@ -42,6 +43,7 @@ componentRegistry.addOrOverrideComponent("QuestionnaireView", QuestionnaireViewE
 componentRegistry.addOrOverrideComponent("ChoiceQuestionView", ChoiceQuestionViewExtended);
 componentRegistry.addOrOverrideComponent("TopProductView", TopProductViewExtended);
 componentRegistry.addOrOverrideComponent("ShownProductsView", ShownProductsViewExtended);
+componentRegistry.addOrOverrideComponent("StartOverButtonView", StartOverButtonViewExtended);
 
 const componentStyles = {
   AdvisorView: styles.AdvisorViewStyle,
